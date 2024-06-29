@@ -8,13 +8,13 @@ use Illuminate\Container\Container as BaseContainer;
 class Container extends BaseContainer
 {
     protected array $terminatingCallbacks = [];
-    protected $appNameSpace = '';
     
-
-
     public function getNamespace()
     {    
-        return $this->get('appNamespace');
+        if($this->has(Blade::class))
+            return $this->make(Blade::class)->appNamespace;
+
+        return '';
     }
 
     public function terminating(Closure $callback)
