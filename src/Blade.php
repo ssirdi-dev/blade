@@ -40,6 +40,7 @@ class Blade implements FactoryContract
 
         $this->factory = $this->container->get('view');
         $this->compiler = $this->container->get('blade.compiler');
+        $this->setAppNamespace();
     }
 
     public function setAppNamespace($namespace = 'App\\')
