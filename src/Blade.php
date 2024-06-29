@@ -47,6 +47,7 @@ class Blade implements FactoryContract
     public function setAppNamespace($namespace = 'App\\')
     {
         $this->appNameSpace = $namespace ;
+        $this->container->bind(Blade::class, fn()=> $this);
     }
 
     public function render(string $view, array $data = [], array $mergeData = []): string
@@ -130,6 +131,6 @@ class Blade implements FactoryContract
         ]));
 
         Facade::setFacadeApplication($this->container);
-        $this->container->singleton(Blade::class, fn()=> $this);
+        $this->container->bind(Blade::class, fn()=> $this);
     }
 }
