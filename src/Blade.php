@@ -44,7 +44,7 @@ class Blade implements FactoryContract
 
     public function setAppNamespace($namespace = 'App\\')
     {
-        $this->container->bindIf('app.namespace',$namespace);
+        $this->container->bindIf('appNamespace', fn()=> $namespace);
     }
 
     public function render(string $view, array $data = [], array $mergeData = []): string
