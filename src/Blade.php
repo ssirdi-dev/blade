@@ -42,6 +42,11 @@ class Blade implements FactoryContract
         $this->compiler = $this->container->get('blade.compiler');
     }
 
+    public function setAppNamespace($namespace = 'App\\')
+    {
+        $this->container->setAppNamespace($namespace);
+    }
+
     public function render(string $view, array $data = [], array $mergeData = []): string
     {
         return $this->make($view, $data, $mergeData)->render();
