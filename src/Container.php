@@ -10,14 +10,11 @@ class Container extends BaseContainer
     protected array $terminatingCallbacks = [];
     protected $appNameSpace = '';
     
-    public function setAppNamespace($namespace)
-    {
-        $this->appNameSpace = $namespace;
-    }
+
 
     public function getNamespace()
     {    
-        return $this->appNameSpace;
+        return config('app.namespace');
     }
 
     public function terminating(Closure $callback)
