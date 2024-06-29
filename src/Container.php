@@ -14,7 +14,7 @@ class Container extends BaseContainer
 
     public function getNamespace()
     {    
-        return $this->get('app.namespace');
+        return $this->make('app.namespace');
     }
 
     public function terminating(Closure $callback)
