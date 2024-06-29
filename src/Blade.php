@@ -33,7 +33,7 @@ class Blade implements FactoryContract
 
     public function __construct($viewPaths, string $cachePath, ContainerInterface $container = null)
     {
-        $this->container = $container ?: new Container;
+        $this->container = $container ?: Container::instance();
 
         $this->setupContainer((array) $viewPaths, $cachePath);
         (new ViewServiceProvider($this->container))->register();
