@@ -16,7 +16,7 @@ use Illuminate\View\ViewServiceProvider;
 
 class Blade implements FactoryContract
 {
-    protected $appNameSpace = '';
+    static $appNameSpace = '';
     /**
      * @var Application
      */
@@ -44,11 +44,7 @@ class Blade implements FactoryContract
         $this->setAppNamespace();
     }
 
-    public function setAppNamespace($namespace = 'App\\')
-    {
-        $this->appNameSpace = $namespace ;
-        $this->container->bind(Blade::class, fn()=> $this);
-    }
+ 
 
     public function render(string $view, array $data = [], array $mergeData = []): string
     {
@@ -131,6 +127,5 @@ class Blade implements FactoryContract
         ]));
 
         Facade::setFacadeApplication($this->container);
-        $this->container->bind(Blade::class, fn()=> $this);
     }
 }
