@@ -8,6 +8,17 @@ use Illuminate\Container\Container as BaseContainer;
 class Container extends BaseContainer
 {
     protected array $terminatingCallbacks = [];
+    protected $appNameSpace = '';
+    
+    public function setAppNamespace($namespace)
+    {
+        $this->appNameSpace($namespace);
+    }
+
+    public function getNamespace()
+    {    
+        return $this->appNameSpace;
+    }
 
     public function terminating(Closure $callback)
     {
