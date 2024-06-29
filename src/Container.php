@@ -12,7 +12,7 @@ class Container extends BaseContainer
     
     public function setAppNamespace($namespace)
     {
-        $this->appNameSpace($namespace);
+        $this->appNameSpace = $namespace;
     }
 
     public function getNamespace()
