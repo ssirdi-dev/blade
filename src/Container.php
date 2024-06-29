@@ -11,10 +11,8 @@ class Container extends BaseContainer
     
     public function getNamespace()
     {    
-        if($this->has(Blade::class))
-            return $this->make(Blade::class)->appNamespace;
-
-        return '';
+  
+        return Blade::$appNameSpace;
     }
 
     public function terminating(Closure $callback)
