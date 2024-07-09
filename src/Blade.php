@@ -43,7 +43,11 @@ class Blade implements FactoryContract
         $this->compiler = $this->container->get('blade.compiler');
     }
 
- 
+    public function getContainer()
+    {
+        return $this->container;
+    }
+    
 
     public function render(string $view, array $data = [], array $mergeData = []): string
     {
